@@ -41,9 +41,6 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {    
-        $album = new Album($request->all());
-        $this->traiterImage($request, $album);
-        $album->save();
         return redirect()->action('AlbumController@show', $album);
     }
     public function traiterImage(Request $request, Album $album) {

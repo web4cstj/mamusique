@@ -27,16 +27,25 @@ L'installation
 
 La page maîtresse
 -----------------
-- Recréez la page maîtresse (`layout.index` avec `layout.header`, `layout.nav`, `layout.footer`) à partir du fichier `_exemples/exemple.html`
+- Recréez la page maîtresse (`layout.index` avec inclusion de `layout.header`, `layout.footer` et `layout.nav`) à partir du fichier `_exemples/exemple.html`
+    
+    __Note__: Il y a un `@yield` nommé 'menu' dans `layout.nav`, et vous devez ajouter un `@yield` qui s'appelle 'contenu' dans `layout.index`;
 
 La page `album.index`
--------------------
+---------------------
 - Recréez la page qui liste les albums (`album.index`) à partir également du fichier `_exemples/exemple.html`
-- Créer une view `album.cart`e qui contiendra le lien `a.carte` et utilisez cette view dans `album.index`.
+
+    __Note__: Il y a 2 sections : 'menu' et 'contenu'. 
+
+- Créer une view `album.carte` qui contiendra le lien `a.carte` et utilisez cette view dans `album.index`.
+
+    __Note__: Pour obtenir l'adresse de l'image, utiliser le code suivant : `{{$album->adresseImage(250)}}`
 
 Le formulaire de création
 -------------------------
-- Il y a des données bidon dans le formulaire de création. Faites en sorte que le formulaire soit vide __sauf__ le champ `md5`. __Note__: Il faut quand même que le formulaire de modification contiennent des informations.
+- Il y a des données bidon dans le formulaire de création. Faites en sorte que le formulaire soit vide __sauf__ le champ `md5`. 
+
+    __Note__: Il faut quand même que le formulaire de modification contiennent des informations.
 
 La création
 -----------
