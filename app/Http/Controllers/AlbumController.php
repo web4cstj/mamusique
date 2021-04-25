@@ -42,7 +42,11 @@ class AlbumController extends Controller
     public function store(Request $request)
     {    
         $album = new Album($request->all());
-        // return $album;
+        $this->traiterImage($request, $album);
+        $album->save();
+        return redirect()->action('AlbumController@show', $album);
+    }
+    public function traiterImage(Request $request, Album $album) {
         if ($request->file('image')) {
             $album->image = 1;
             $this->store_image($request, 250);
@@ -51,8 +55,6 @@ class AlbumController extends Controller
         } else {
             $album->image = 0;
         }
-        $album->save();
-        return redirect()->action('AlbumController@show', $album);
     }
     public function store_image(Request $request, $size) {
         $image = \Image::make($request->file('image'));
